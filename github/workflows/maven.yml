@@ -1,0 +1,19 @@
+name: test cont github Action
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Ejecutar pruebas con Maven
+      run: mvn clean test
+
+    - name: Generar reporte de cobertura con JaCoCo
+      run: mvn verify
